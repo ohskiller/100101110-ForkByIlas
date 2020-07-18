@@ -55,7 +55,7 @@ async def _(event):
 @register(pattern=".chatinfo(?: |$)(.*)", outgoing=True)
 @errors_handler
 async def info(event):
-    await event.edit(f"`{DEFAULTUSER}:`**Ricerca nel database...**")
+    await event.edit(f"**Ricerca nel database...**")
     chat = await get_chatinfo(event)
     caption = await fetch_info(chat, event)
     try:
@@ -143,7 +143,7 @@ async def fetch_info(chat, event):
     username = chat_obj_info.username if hasattr(chat_obj_info, "username") else None
     bots_list = chat.full_chat.bot_info  # this is a list
     bots = 0
-    supergroup = "<b>Yes</b>" if hasattr(chat_obj_info, "megagroup") and chat_obj_info.megagroup else "No"
+    supergroup = "<b>Sì</b>" if hasattr(chat_obj_info, "megagroup") and chat_obj_info.megagroup else "No"
     username = "@{}".format(username) if username else None
     creator_username = "@{}".format(creator_username) if creator_username else None
     #end of spaghetti block
@@ -163,14 +163,14 @@ async def fetch_info(chat, event):
     caption = "<b>📌 CHAT INFO:</b>\n\n"
     caption += f"  ★ ID: <code>{chat_obj_info.id}</code>\n"
     if chat_title is not None:
-        caption += f"  ★ {chat_type} : {chat_title}\n"
+        caption += f"  ★ {chat_type}: {chat_title}\n"
     if former_title is not None:  # Meant is the very first title
         caption += f"  ★ Former name: {former_title}\n"
     if username is not None:
-        caption += f"  ★ {chat_type} : Pubblico\n"
+        caption += f"  ★ {chat_type}: Pubblico\n"
         caption += f"  ★ Link: {username}\n"
     else:
-        caption += f"  ★ {chat_type} : Privato\n"
+        caption += f"  ★ {chat_type}: Privato\n"
     if creator_username is not None:
         caption += f"  ★ Founder: {creator_username}\n"
     elif creator_valid:
@@ -242,17 +242,16 @@ async def _(event):
     except Exception as e:
         dc_id = "Need a Profile Picture to check **this**"
         location = str(e)
-    caption = """⚙️ DATABASE USERBOT-100101110
-    
-ID: <code>{}</code>
-NOME: <a href='tg://user?id={}'>{}</a>
-BIO: {}
-DC ID: {}
-PIC PROFILO: {}
-LIMITATO: {}
-VERIFICATO: {}
-BOT: {}
-GRUPPI IN COMUNE: {}
+    caption = """<b>Database di @Cattivah</b> 🐝
+<i>◈ ID » <code>{}</code>
+◈ Nome » <a href='tg://user?id={}'>{}</a>
+◈ Bio » {}
+◈ DC ID » {}
+◈ Pic » {}
+◈ Limitato » {}
+◈ Verificato » {}
+◈ Bot » {}
+◈ Gruppi in comune » {}</i>
 """.format(
         user_id,
         user_id,
