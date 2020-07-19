@@ -50,7 +50,7 @@ async def cmd_list(event):
             for i in CMD_LIST:
 
 
-                string += "🔸 " + i + "\n"
+                string += "◈ " + i + "\n"
 
 
                 for iter_list in CMD_LIST[i]:
