@@ -25,7 +25,7 @@ CACHE = {}
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "100101110"
 USER_BOT_WARN_ZERO = "**Stai spammando troppo, sei bloccato dal bot sono impegnato 👎**"
-USER_BOT_NO_WARN = ("[╚ »✪« ╝ SYSTEM BOT ╚ »✪« ╝](tg://user?id=1133198248)\n\n"
+USER_BOT_NO_WARN = ("╚ »✪« ╝ SYSTEM BOT ╚ »✪« ╝\n\n"
                     "**Specifica il motivo**\n**perchè cerchi** "f"{DEFAULTUSER}\n\n"
                     "**Lascia il tuo tag e numero,**\n**rispondo entro 24h.**\n**Premi `/start` e scegli**\n**il motivo della chat.**\n\n"
                     "▬▬▬ ✪ ▬▬ ◆ ▬▬ ✪ ▬▬▬")
