@@ -15,7 +15,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         query = event.text
         if event.query.user_id == bot.uid and query.startswith("Userbot"):
             rev_text = query[::-1]
-            buttons = starting_help(0, CMD_LIST, "helpme")
+            buttons = paginate_help(0, CMD_LIST, "helpme")
             result = builder.article(
                 "© Userbot Help",
                 text="{}\nPlugins: {}".format(
@@ -105,6 +105,3 @@ def paginate_help(page_number, loaded_plugins, prefix):
              custom.Button.inline("→", data="{}_next({})".format(prefix, modulo_page)))
         ]
     return pairs
-
-def starting_help(page_number, loaded_plugins, prefix):
-    custom.Button.inline("◈ Clicca per iniziare ◈", data="paginate_help(page_number, loaded_plugins, prefix)".format())
