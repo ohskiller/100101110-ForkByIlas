@@ -106,5 +106,5 @@ def paginate_help(page_number, loaded_plugins, prefix):
         ]
     return pairs
 
-def starting_help()
-    custom.Button.inline("◈ Clicca per iniziare ◈", data="paginate_help({})".format(prefix, modulo_page)
+def starting_help():
+    custom.Button.inline("◈ Clicca per iniziare ◈", data="paginate_help({})".format()
