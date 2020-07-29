@@ -53,7 +53,7 @@ async def _(event):
         await event.edit(f"`{DEFAULTUSER}:`**Rispondi ad un img per creare uno Stickers**")
         return
     reply_message = await event.get_reply_message()
-    sticker_emoji = "🔥"
+    sticker_emoji = "🌚"
     input_str = event.pattern_match.group(1)
     if input_str:
         sticker_emoji = input_str
@@ -65,7 +65,7 @@ async def _(event):
     userid = event.from_id
     packname = f"{user.first_name} Pack Vol.{pack}"
     packshortname = f"vol_{pack}_with_{userid}"
-    await event.edit("**Ora ti derubo!**\n**Mi sa che ti fotto lo Sticker**")
+    await event.delete()
 
     is_a_s = is_it_animated_sticker(reply_message)
     file_ext_ns_ion = "Anubis69_roxx.png"
