@@ -4,7 +4,7 @@
   "repository": "https://github.com/JustIlas69/Ilas-UserBot",
   "env": {
     "ENV": {
-      "description": "NON MODIFICARE serve per attivare Heroku.",
+      "description": "Attivazione Heroku: ANYTHING",
       "value": "ANYTHING"
     },
     "TEMP_DOWNLOAD_DIRECTORY": {
