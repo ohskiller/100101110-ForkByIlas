@@ -10,7 +10,7 @@
 
 #### Installazione
 
-https://brand.heroku.com/static/media/heroku-logotype-horizontal.81c49462.svg(https://heroku.com/deploy)
+(https://brand.heroku.com/static/media/heroku-logotype-horizontal.81c49462.svg)(https://heroku.com/deploy)
 [![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ***
