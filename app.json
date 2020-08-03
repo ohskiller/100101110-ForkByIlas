@@ -1,7 +1,7 @@
 {
-  "name": "userbot-100101110",
-  "logo": "https://www.toptenz.net/wp-content/uploads/2019/01/red-dragon-3235672_640.jpg",
-  "repository": "https://github.com/100101110/userbot-100101110",
+  "name": "Ilas",
+  "logo": "https://i.ibb.co/kSpKWb6/20200803-230142.png",
+  "repository": "https://github.com/JustIlas69/Ilas-UserBot",
   "env": {
     "ENV": {
       "description": "NON MODIFICARE serve per attivare Heroku.",
