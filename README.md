@@ -17,4 +17,4 @@
 #### Contatti
 
 [![Telegram](https://img.shields.io/badge/TG-%20Cattivah-orange.svg?style=for-the-badge)](https://t.me/Cattivah)
-[![Github](https://img.shields.io/badge/Github-%20Cattivah-purple.svg?style=for-the-badge)](https://github.com/JustIlas69)
+[![Github](https://img.shields.io/badge/Github-%20justilas69-purple.svg?style=for-the-badge)](https://github.com/JustIlas69)
