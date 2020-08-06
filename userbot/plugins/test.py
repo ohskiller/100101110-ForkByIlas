@@ -8,10 +8,10 @@ async def _(event):
     if event.fwd_from:
         return
     start = datetime.now()
-    await event.edit("**¯\_(ツ)_/¯**")
+    await event.edit("**Calcolando...**")
     end = datetime.now()
     ms = (end - start).microseconds / 1000
-    await event.edit("**¯\_(ツ)_/¯**\n{}".format(ms))   
+    await event.edit("**PINGER PRO**\nPing: {}ms".format(ms))   
 
 
 @command(pattern="^.ping")
@@ -22,4 +22,4 @@ async def _(event):
     await event.edit("Pong!")
     end = datetime.now()
     ms = (end - start).microseconds / 1000
-    await event.edit("Pong!\n{}".format(ms))
+    await event.edit("PINGER PRO**\n__◈ Ping: {}ms__".format(ms))
