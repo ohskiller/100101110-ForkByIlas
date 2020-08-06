@@ -47,11 +47,11 @@ async def _(event):
         if as_text:
             await event.edit("""**SpeedTest eseguito in {} secondi**
 
-<i>◈ Download » {}
+__◈ Download » {}
 ◈ Upload » {}
 ◈ Ping » {}
 ◈ Internet Service Provider » {}
-◈ ISP Rating » {}</i>""".format(ms, convert_from_bytes(download_speed), convert_from_bytes(upload_speed), ping_time, i_s_p, i_s_p_rating))
+◈ ISP Rating » {}__""".format(ms, convert_from_bytes(download_speed), convert_from_bytes(upload_speed), ping_time, i_s_p, i_s_p_rating))
         else:
             await bot.send_file(
                 event.chat_id,
