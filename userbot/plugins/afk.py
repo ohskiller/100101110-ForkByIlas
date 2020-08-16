@@ -1,10 +1,3 @@
-# Copyright © 2020 di 100101110 Github, <https://github.com/100101110>.
-#
-# Questo file fa parte del progetto <https://github.com/100101110/userbot-100101110>,
-# e viene rilasciato in base alla "Licenza GNU Affero General Public v3.0".
-# Si prega di consultare <https://github.com/100101110/userbot-100101110/blob/master/LICENSE>
-#
-# Tutti i diritti riservati.
 """AFK Plugin
 Syntax: .afk REASON"""
 
@@ -55,15 +48,15 @@ async def _(event):
             afk_time = datetime.datetime.now()  # pylint:disable=E0602
         USER_AFK = f"yes: {reason}"  # pylint:disable=E0602
         if reason:
-            await bot.send_message(event.chat_id, f"**Vado AFK ⛔️** __MOTIVO ~ {reason}__")
+            await bot.send_message(event.chat_id, f"✧ **ORA SONO AFK**\nMotivo: __{reason}__")
         else:
-            await bot.send_message(event.chat_id, f"**Sono AFK!**")
+            await bot.send_message(event.chat_id, f"✧ **ORA SONO AFK**\nMotivo: __non specificato__")
         await asyncio.sleep(5)
         await event.delete()
         try:
             await bot.send_message(  # pylint:disable=E0602
                 Var.PRIVATE_GROUP_ID,  # pylint:disable=E0602
-                f"AFK ON {reason}"
+                f"(Ilas Log) Afk attivato: {reason}"
             )
         except Exception as e:  # pylint:disable=C0103,W0703
             logger.warn(str(e))  # pylint:disable=E0602
@@ -91,12 +84,11 @@ async def set_not_afk(event):
         except Exception as e:  # pylint:disable=C0103,W0703
             await bot.send_message(  # pylint:disable=E0602
                 event.chat_id,
-                "Inserisci la Var `PRIVATE_GROUP_ID` " + \
-                "per far funzionare afk " + \
-                "in @IOIIOIIIOIIOI\nCerca #pmpermessi per info.\n\n `{}`".format(str(e)),
+                "C'è stato un errore: `PRIVATE_GROUP_ID` " + \
+                "Chiedi aiuto a @Cattivah"
                 reply_to=event.message.id,
                 silent=True
-            )
+  
         await asyncio.sleep(5)
         await shite.delete()
         USER_AFK = {}  # pylint:disable=E0602
@@ -155,10 +147,10 @@ async def on_afk(event):
             else:
                 afk_since = f"`{int(seconds)}s` **ago**"
         msg = None
-        message_to_reply = f"**⛔️ IL MIO CAPO È OFF ⛔️ DA** `{total_afk_time}`\n**QUINDI NON SPAMMARE GRAZIE.**" + \
-            f"\n\n**QUANDO SONO ONLINE RISPONDO A TUTTI BYE.**\n**MOTIVO**: {reason}" \
+        message_to_reply = f"✧ **SONO AFK**Leggero il tuo messaggio quando tornerò online." + \
+            f"\nMotivo: __{reason}__" \
             if reason \
-            else f"**⛔️ AL MOMENTO SONO OFF ⛔️**\n\n**LASCIA UN MESSAGGIO SE DEVI CHIEDERMI QUALCOSA GRAZIE ‼️**\n**APPENA TORNO CERCO DI RISPONDERE BYE 👍**"
+            else f"✧ **SONO AFK**Leggero il tuo messaggio quando tornerò online.""
         msg = await event.reply(message_to_reply)
         await asyncio.sleep(5)
         if event.chat_id in last_afk_message:  # pylint:disable=E0602
