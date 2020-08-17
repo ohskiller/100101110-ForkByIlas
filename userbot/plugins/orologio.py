@@ -4,7 +4,7 @@ from collections import deque
 from userbot.system import dev_cmd
 
 
-@borg.on(admin_cmd(pattern=r"clock"))
+@bot.on(dev_cmd(pattern=r"clock"))
 async def _(event):
 	if event.fwd_from:
 		return
