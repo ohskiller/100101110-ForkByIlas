@@ -3,13 +3,13 @@ import asyncio
 from userbot.system import command
 
 
-@command(outgoing=True, pattern=r"^.mute ?(\d+)?")
+@command(outgoing=True, pattern=r"^.imute ?(\d+)?")
 async def startmute(event):
     private = False
     if event.fwd_from:
         return
     elif event.is_private:
-        await event.edit("**Si è verificato un errore!⚠️**")
+        await event.edit("`Si è verificato un errore.`")
         await asyncio.sleep(3)
         private = True
     if any([x in event.raw_text for x in ("/mute", "!mute")]):
@@ -23,37 +23,37 @@ async def startmute(event):
         elif private is True:
             userid = event.chat_id
         else:
-            return await event.edit("**Rispondi ad un user o inserisci ID user.**")
+            return await event.edit("`Rispondi ad un user o inserisci ID user.`")
         chat_id = event.chat_id
         chat = await event.get_chat()
         if "admin_rights" in vars(chat) and vars(chat)["admin_rights"] is not None: 
             if chat.admin_rights.delete_messages is True:
                 pass
             else:
-                return await event.edit("**Non puoi mutare se non hai i permessi necessari!⚠️**")
+                return await event.edit("`Non puoi mutare se non hai i permessi necessari.`")
         elif "creator" in vars(chat):
             pass
         elif private == True:
             pass
         else:
-            return await event.edit("**Non sei admin bro!⚠️**")
+            return await event.edit("`Non sei admin.`")
         if is_muted(userid, chat_id):
-            return await event.edit("**User già mutato in questa chat**")
+            return await event.edit("`Utente già mutato.`")
         try:
             mute(userid, chat_id)
         except Exception as e:
             await event.edit("Error occured!\nError is " + str(e))
         else:
-            await event.edit("Ok bro mute eseguito**")
+            await event.edit("`Utente mutato.`")
 
 
-@command(outgoing=True, pattern=r"^.unmute ?(\d+)?")
+@command(outgoing=True, pattern=r"^.iunmute ?(\d+)?")
 async def endmute(event):
     private = False
     if event.fwd_from:
         return
     elif event.is_private:
-        await event.edit("**Si è verificato un errore!⚠️**")
+        await event.edit("`Si è verificato un errore.`")
         await asyncio.sleep(3)
         private = True
     if any([x in event.raw_text for x in ("/unmute", "!unmute")]):
@@ -67,92 +67,16 @@ async def endmute(event):
         elif private is True:
             userid = event.chat_id
         else:
-            return await event.edit("**Rispondi ad un user o inserisci ID user.**")
+            return await event.edit("`Rispondi ad un user o inserisci ID user.`")
         chat_id = event.chat_id
         if not is_muted(userid, chat_id):
-            return await event.edit("**User non mutato in questa chat**")
+            return await event.edit("`Questo utente non è mutato.`")
         try:
             unmute(userid, chat_id)
         except Exception as e:
             await event.edit("Error occured!\nError is " + str(e))
         else:
-            await event.edit("**Ok bro unmute eseguito**")
-            
-
-@command(outgoing=True, pattern=r"^.mute ?(\d+)?", allow_sudo=True)
-async def startmute(event):
-    private = False
-    if event.fwd_from:
-        return
-    elif event.is_private:
-        await event.edit("**Si è verificato un errore!⚠️**")
-        await asyncio.sleep(3)
-        private = True
-    if any([x in event.raw_text for x in ("/mute", "!mute")]):
-        await asyncio.sleep(0.5)
-    else:
-        reply = await event.get_reply_message()
-        if event.pattern_match.group(1) is not None:
-            userid = event.pattern_match.group(1)
-        elif reply is not None:
-            userid = reply.sender_id
-        elif private is True:
-            userid = event.chat_id
-        else:
-            return await event.edit("**Rispondi ad un user o inserisci ID user.**")
-        chat_id = event.chat_id
-        chat = await event.get_chat()
-        if "admin_rights" in vars(chat) and vars(chat)["admin_rights"] is not None: 
-            if chat.admin_rights.delete_messages is True:
-                pass
-            else:
-                return await event.edit("**Non puoi mutare se non hai i permessi necessari!⚠️**")
-        elif "creator" in vars(chat):
-            pass
-        elif private == True:
-            pass
-        else:
-            return await event.edit("**Non sei admin bro!⚠️**")
-        if is_muted(userid, chat_id):
-            return await event.edit("**User già mutato in questa chat.**")
-        try:
-            mute(userid, chat_id)
-        except Exception as e:
-            await event.edit("Error occured!\nError is " + str(e))
-        else:
-            await event.edit("Ok bro mute eseguito**")
-
-
-@command(outgoing=True, pattern=r"^.unmute ?(\d+)?", allow_sudo=True)
-async def endmute(event):
-    private = False
-    if event.fwd_from:
-        return
-    elif event.is_private:
-        await event.edit("**Si è verificato un errore!⚠️**")
-        await asyncio.sleep(3)
-        private = True
-    if any([x in event.raw_text for x in ("/unmute", "!unmute")]):
-        await asyncio.sleep(0.5)
-    else:
-        reply = await event.get_reply_message()
-        if event.pattern_match.group(1) is not None:
-            userid = event.pattern_match.group(1)
-        elif reply is not None:
-            userid = reply.sender_id
-        elif private is True:
-            userid = event.chat_id
-        else:
-            return await event.edit("**Rispondi ad un user o inserisci ID user.**")
-        chat_id = event.chat_id
-        if not is_muted(userid, chat_id):
-            return await event.edit("**User non mutato in questa chat.**")
-        try:
-            unmute(userid, chat_id)
-        except Exception as e:
-            await event.edit("Error occured!\nError is " + str(e))
-        else:
-            await event.edit("Ok bro unmute eseguito")
+            await event.edit("`Utente smutato.`")
 
 
 @command(incoming=True)
