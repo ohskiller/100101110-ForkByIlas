@@ -2,7 +2,7 @@
 # By @AKASH_AM1 and @xditya
 # Kangers keep credits 
 from userbot import ALIVE_NAME
-from userbot.utils import admin_cmd
+from userbot.system import dev_cmd
 
 
 n = str(ALIVE_NAME) if ALIVE_NAME else "Ilas"
