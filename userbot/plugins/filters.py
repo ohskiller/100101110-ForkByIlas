@@ -133,6 +133,6 @@ async def on_snip_delete(event):
 @command(pattern="^.clearallfilters$")
 async def on_all_snip_delete(event):
     remove_all_filters(event.chat_id)
-    await event.edit("Tutti i sono stati cancellati.")
+    await event.edit("Tutti i filtri sono stati cancellati.")
     await asynco.sleep(2)
     await event.delete()
