@@ -83,8 +83,7 @@ async def set_not_afk(event):
         except Exception as e:  # pylint:disable=C0103,W0703
             await bot.send_message(  # pylint:disable=E0602
                 event.chat_id,
-                "C'è stato un errore: `PRIVATE_GROUP_ID` " + \
-                "Chiedi aiuto a @Cattivah"
+                "C'è stato un errore: `PRIVATE_GROUP_ID`\nChiedi aiuto a @Cattivah.",
                 reply_to=event.message.id,
                 silent=True
   
