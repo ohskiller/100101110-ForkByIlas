@@ -2,7 +2,6 @@
 .autoname for time along name 
 .autopic tilted image along with time
 .autobio  for time along with your bio
-.monkeybio set of funny bio's
 """
 import asyncio
 import time
