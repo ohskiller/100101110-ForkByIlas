@@ -22,7 +22,7 @@ from userbot.system import dev_cmd, command
 # ================= CONSTANT =================
 DEFAULTUSERBIO = str(DEFAULT_BIO) if DEFAULT_BIO else "ᗯᗩᏆᎢᏆᑎᏀ ᏞᏆᏦᗴ ᎢᏆᗰᗴ"
 DEL_TIME_OUT = 30
-DEFAULTUSER = str(AUTONAME) if AUTONAME else "100101110" 
+DEFAULTUSER = str(AUTONAME) if AUTONAME else "Ilas" 
 FONT_FILE_TO_USE = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
 # ============================================
 
@@ -62,9 +62,9 @@ async def autopic(event):
 async def _(event):
     await event.edit(f"Auto Name avviato.") 
     while True:
-        DM = time.strftime("%d-%m-%y")
+        DM = time.strftime("%d/%m/%y")
         HM = time.strftime("%H:%M")
-        name = f"{HM} {DEFAULTUSER} {DM}"
+        name = f"Oggi è il {DM} e sono le {HM}"
         logger.info(name)
         try:
             await bot(functions.account.UpdateProfileRequest(  # pylint:disable=E0602
@@ -82,76 +82,12 @@ async def _(event):
     await event.edit(f"Auto bio avviata.") 
     while True:
         DMY = time.strftime("%d.%m.%Y")
-        HM = time.strftime("%H:%M:%S")
-        bio = f"📅 {DMY} | {DEFAULTUSERBIO} | ⌚️ {HM}"
+        HM = time.strftime("%H:%M")
+        bio = f"📅 Oggi è il {DMY} e sono le {HM}"
         logger.info(bio)
         try:
             await bot(functions.account.UpdateProfileRequest(  # pylint:disable=E0602
                 about=bio
-            ))
-        except FloodWaitError as ex:
-            logger.warning(str(e))
-            await asyncio.sleep(ex.seconds)
-
-        await asyncio.sleep(DEL_TIME_OUT)
-     
-     
-BIO_STRINGS = [
-     "ᗯᗩᏆᎢᏆᑎᏀ ᏞᏆᏦᗴ ᎢᏆᗰᗴ",
-     "ᗯᗩᏆᎢᏆᑎᏀ ᏞᏆᏦᗴ ᎢᏆᗰᗴ",
-     "ᗯᗩᏆᎢᏆᑎᏀ ᏞᏆᏦᗴ ᎢᏆᗰᗴ",
-     "ᗯᗩᏆᎢᏆᑎᏀ ᏞᏆᏦᗴ ᎢᏆᗰᗴ",
-     "ᗯᗩᏆᎢᏆᑎᏀ ᏞᏆᏦᗴ ᎢᏆᗰᗴ",
-     "ᗯᗩᏆᎢᏆᑎᏀ ᏞᏆᏦᗴ ᎢᏆᗰᗴ",
-     "ᗯᗩᏆᎢᏆᑎᏀ ᏞᏆᏦᗴ ᎢᏆᗰᗴ",
-     "ᗯᗩᏆᎢᏆᑎᏀ ᏞᏆᏦᗴ ᎢᏆᗰᗴ",
-     "ᗯᗩᏆᎢᏆᑎᏀ ᏞᏆᏦᗴ ᎢᏆᗰᗴ",
-     "ᗯᗩᏆᎢᏆᑎᏀ ᏞᏆᏦᗴ ᎢᏆᗰᗴ",
-     "🐵",
-     "🙈",
-     "🙉",
-     "🙊",
-     "🐵",
-     "🐵",
-     "🙈",
-     "🙉",
-     "🙊",
-     "🐵",
-     "ᗯᗩᏆᎢᏆᑎᏀ ᏞᏆᏦᗴ ᎢᏆᗰᗴ",
-     "ᗯᗩᏆᎢᏆᑎᏀ ᏞᏆᏦᗴ ᎢᏆᗰᗴ",
-     "ᗯᗩᏆᎢᏆᑎᏀ ᏞᏆᏦᗴ ᎢᏆᗰᗴ",
-     "ᗯᗩᏆᎢᏆᑎᏀ ᏞᏆᏦᗴ ᎢᏆᗰᗴ",
-     "ᗯᗩᏆᎢᏆᑎᏀ ᏞᏆᏦᗴ ᎢᏆᗰᗴ",
-     "ᗯᗩᏆᎢᏆᑎᏀ ᏞᏆᏦᗴ ᎢᏆᗰᗴ",
-     "ᗯᗩᏆᎢᏆᑎᏀ ᏞᏆᏦᗴ ᎢᏆᗰᗴ",
-     "ᗯᗩᏆᎢᏆᑎᏀ ᏞᏆᏦᗴ ᎢᏆᗰᗴ",
-     "ᗯᗩᏆᎢᏆᑎᏀ ᏞᏆᏦᗴ ᎢᏆᗰᗴ",
-     "ᗯᗩᏆᎢᏆᑎᏀ ᏞᏆᏦᗴ ᎢᏆᗰᗴ",
-     "🐵",
-     "🙈",
-     "🙉",
-     "🙊",
-     "🐵",
-     "🐵",
-     "🙈",
-     "🙉",
-     "🙊",
-     "🐵",
-
-]
-
-
-@bot.on(dev_cmd(pattern="monkeybio"))  # pylint:disable=E0602
-async def _(event):
-    await event.edit(f"monkey bio avviata.") 
-    while True:
-        bro = random.randint(0, len(BIO_STRINGS) - 1)    
-        #input_str = event.pattern_match.group(1)
-        Bio = BIO_STRINGS[bro]
-        logger.info(Bio)
-        try:
-            await bot(functions.account.UpdateProfileRequest(  # pylint:disable=E0602
-                about=Bio
             ))
         except FloodWaitError as ex:
             logger.warning(str(e))
