@@ -37,7 +37,7 @@ INVALID_MEDIA = "Invalid Extension"
 # ================================================
 
 
-@bot.on(dev_cmd(pattern="setgpic ?(.*)", outgoing=True))
+@bot.on(dev_cmd(pattern="isetgpic ?(.*)", outgoing=True))
 @errors_handler
 async def set_group_photo(gpic):
     """ For .setgpic command, changes the picture of a group."""
@@ -75,7 +75,7 @@ async def set_group_photo(gpic):
             await gpic.edit(PP_ERROR)
 
 
-@bot.on(dev_cmd(pattern="admins ?(.*)", outgoing=True))
+@bot.on(dev_cmd(pattern="iadmins ?(.*)", outgoing=True))
 @errors_handler
 async def get_admin(show):
     """ For .admins command, list all of the admins of the chat. """
@@ -96,7 +96,7 @@ async def get_admin(show):
     await show.edit(mentions, parse_mode="html")
 
 
-@bot.on(dev_cmd(pattern="users ?(.*)", outgoing=True))
+@bot.on(dev_cmd(pattern="iusers ?(.*)", outgoing=True))
 @errors_handler
 async def get_users(show):
     """ For .users command, list all of the users in a chat."""
@@ -187,7 +187,7 @@ async def get_user_from_id(user, event):
     return user_obj
     
 
-@bot.on(dev_cmd(pattern="pgs ?(.*)", outgoing=True))
+@bot.on(dev_cmd(pattern="ipgs ?(.*)", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
