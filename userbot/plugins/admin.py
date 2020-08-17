@@ -35,11 +35,11 @@ from userbot.system import register, errors_handler, dev_cmd
 # =================== CONSTANT ===================
 PP_TOO_SMOL = "`L'immagine è troppo piccola`"
 PP_ERROR = "`Failure while processing the image`"
-NO_ADMIN = "**Non sei admin bro!**"
-NO_PERM = "`Non ho i permessi sufficenti!`"
+NO_ADMIN = "`Non sei admin.`"
+NO_PERM = "`Non hai i permessi sufficienti.`"
 NO_SQL = "`Running on Non-SQL mode!`"
 
-CHAT_PP_CHANGED = "**Pic impostata**"
+CHAT_PP_CHANGED = "`Immagine impostata.`"
 CHAT_PP_ERROR = "`Some issue with updating the pic,`" \
                 "`maybe coz I'm not an admin,`" \
                 "`or don't have enough rights.`"
@@ -74,7 +74,7 @@ UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 # ================================================
         
 
-@bot.on(dev_cmd(pattern="(ban|unban) ?(.*)"))
+@bot.on(dev_cmd(pattern="(iban|iunban) ?(.*)"))
 async def _(event):
     # Space weirdness in regex required because argument is optional and other
     # commands start with ".unban"
@@ -84,9 +84,9 @@ async def _(event):
     to_ban_id = None
     rights = None
     input_cmd = event.pattern_match.group(1)
-    if input_cmd == "ban":
+    if input_cmd == "iban":
         rights = BANNED_RIGHTS
-    elif input_cmd == "unban":
+    elif input_cmd == "iunban":
         rights = UNBAN_RIGHTS
     input_str = event.pattern_match.group(2)
     reply_msg_id = event.reply_to_msg_id
@@ -102,7 +102,7 @@ async def _(event):
     except (Exception) as exc:
         await event.edit(str(exc))
     else:
-        await event.edit(f'**{input_cmd} ESEGUITO!😎**')
+        await event.edit(f'`{input_cmd} eseguito.`')
 
 
 async def get_user_from_event(event):
@@ -155,7 +155,7 @@ async def get_user_from_id(user, event):
     return user_obj
 
 
-@bot.on(dev_cmd(pattern="kick ?(.*)", outgoing=True))
+@bot.on(dev_cmd(pattern="ikick ?(.*)", outgoing=True))
 @errors_handler
 async def kick(usr):
     """ For .kick command, kicks the replied/tagged person from the group. """
@@ -174,7 +174,7 @@ async def kick(usr):
         await usr.edit("`Couldn't fetch user.`")
         return
 
-    await usr.edit('**KICK...😎**')
+    await usr.edit('`Kick eseguito.`')
 
     try:
         await usr.client.kick_participant(usr.chat_id, user.id)
@@ -189,7 +189,7 @@ async def kick(usr):
         )
     else:
         await usr.edit(
-            f'**KICK 😎** [{user.first_name}](tg://user?id={user.id})`!`')
+            f'`Kick eseguito:`\n`Utente:` [{user.first_name}](tg://user?id={user.id})')
 
     if BOTLOG:
         await usr.client.send_message(
@@ -222,7 +222,7 @@ async def _(event):
         await event.edit('**Rispondi ad un messaggio.**')
 
 
-@bot.on(dev_cmd(pattern="promote ?(.*)", outgoing=True))
+@bot.on(dev_cmd(pattern="ipromote ?(.*)", outgoing=True))
 @errors_handler
 async def promote(promt):
     """ For .promote command, promotes the replied/tagged person """
@@ -273,7 +273,7 @@ async def promote(promt):
             f"CHAT: {promt.chat.title}(`{promt.chat_id}`)")
 
 
-@bot.on(dev_cmd(pattern="demote ?(.*)", outgoing=True))
+@bot.on(dev_cmd(pattern="idemote ?(.*)", outgoing=True))
 @errors_handler
 async def demote(dmod):
     """ For .demote command, demotes the replied/tagged person """
