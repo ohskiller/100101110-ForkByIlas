@@ -13,8 +13,8 @@ import userbot.system
 from datetime import datetime
 
 # ================= CONSTANT =================
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "100101110"
-DELETE_TIMEOUT = 5
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Ilas"
+DELETE_TIMEOUT = 3
 # ============================================
 
 
@@ -32,10 +32,10 @@ async def install(event):
                 path1 = Path(downloaded_file_name)
                 shortname = path1.stem
                 load_module(shortname.replace(".py", ""))
-                await event.edit("Plugin Caricato `{}`".format(os.path.basename(downloaded_file_name)))
+                await event.edit("`Plugin installato:` `{}`".format(os.path.basename(downloaded_file_name)))
             else:
                 os.remove(downloaded_file_name)
-                await event.edit(f"`{DEFAULTUSER}`:**Errore! Plugin installato/pre-installato.**")
+                await event.edit(f"`Errore: Plugin già installato.`")
         except Exception as e:  # pylint:disable=C0103,W0703
             await event.edit(str(e))
             os.remove(downloaded_file_name)
@@ -70,9 +70,9 @@ async def unload(event):
     shortname = event.pattern_match["shortname"]
     try:
         remove_plugin(shortname)
-        await event.edit(f"**Unload** {shortname} **eseguito**")
+        await event.edit(f"`Unload di {shortname} eseguito`")
     except Exception as e:
-        await event.edit("**Unload** {shortname} **eseguito**\n{}".format(shortname, str(e)))
+        await event.edit("`Unload di {shortname} eseguito\n{}`".format(shortname, str(e)))
     await asyncio.sleep(DELETE_TIMEOUT)
     await event.delete()
 
