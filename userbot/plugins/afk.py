@@ -74,8 +74,7 @@ async def set_not_afk(event):
     if afk_start != {}:
         total_afk_time = str((afk_end - afk_start))
     current_message = event.message.message
-    if ".afk" not in current_message and "yes" in USER_AFK:  # pylint:disable=E0602
-        shite = await bot.send_message(event.chat_id, "__Non sono più AFK!__\n**Puoi scrivermi.**\nSono stato afk per:`" + total_afk_time + "`")
+    if ".afk" not in current_message and "yes" in USER_AFK:  # pylint:disable=E060
         try:
             await bot.send_message(  # pylint:disable=E0602
                 Var.PRIVATE_GROUP_ID,  # pylint:disable=E0602
@@ -89,8 +88,6 @@ async def set_not_afk(event):
                 reply_to=event.message.id,
                 silent=True
   
-        await asyncio.sleep(5)
-        await shite.delete()
         USER_AFK = {}  # pylint:disable=E0602
         afk_time = None  # pylint:disable=E0602
 
