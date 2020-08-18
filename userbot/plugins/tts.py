@@ -28,6 +28,7 @@ async def _(event):
     else:
         await event.edit("`.tts LanguageCode` **in risposta a messaggi.**")
         return
+    await event.delete() # Ilas
     text = text.strip()
     lan = lan.strip()
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
@@ -71,6 +72,6 @@ async def _(event):
         os.remove(required_file_name)
         # await event.edit("Processato {} ({}) in {} sec!".format(text[0:97], lan, ms))
         # await asyncio.sleep(5)
-        await event.delete()
+        # await event.delete()
     except Exception as e:
         await event.edit(str(e))
