@@ -39,7 +39,8 @@ include <std/disclaimer.h>
 #### Contatti
 
 [![Telegram](https://img.shields.io/badge/TG-%20Cattivah-orange.svg?style=for-the-badge)](https://t.me/Cattivah)
-\n[![Github](https://img.shields.io/badge/Github-%20justilas69-purple.svg?style=for-the-badge)](https://github.com/JustIlas69)
+
+[![Github](https://img.shields.io/badge/Github-%20justilas69-purple.svg?style=for-the-badge)](https://github.com/JustIlas69)
 
 ***
 
