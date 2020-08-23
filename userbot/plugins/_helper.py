@@ -1,23 +1,7 @@
-# Copyright © 2020 di 100101110 Github, <https://github.com/100101110>.
-#
-# Questo file fa parte del progetto <https://github.com/100101110/userbot-100101110>,
-# e viene rilasciato in base alla "Licenza GNU Affero General Public v3.0".
-# Si prega di consultare <https://github.com/100101110/userbot-100101110/blob/master/LICENSE>
-#
-# Tutti i diritti riservati.
-import asyncio
-from userbot import ALIVE_NAME, bot, CMD_LIST
-from userbot.system import command
-from platform import uname
-
-
-
-
-
 # ================= CONSTANT =================
 
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "100101110"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Mythic"
 
 
 # ============================================
@@ -27,17 +11,9 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "100101110"
 
 
 @command(pattern="^.help ?(.*)")
-
-
 async def cmd_list(event):
-
-
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
-
-
         tgbotusername = Var.TG_BOT_USER_NAME_BF_HER
-
-
         input_str = event.pattern_match.group(1)
 
 
@@ -86,13 +62,13 @@ async def cmd_list(event):
             if input_str in CMD_LIST:
 
 
-                string = "Comandi in {}:\n".format(input_str)
+                string = "**Plugin {}:**\n".format(input_str)
 
 
                 for i in CMD_LIST[input_str]:
 
 
-                    string += "    " + i
+                    string += " ├ " + i
 
 
                     string += "\n"
