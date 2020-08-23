@@ -1,4 +1,4 @@
-# Ilas
+# <i>› MYTHIC</i>
 
 <img src="https://i.ibb.co/cX5RMv5/20200822-142118.png" alt="Ilas">
 
@@ -14,7 +14,7 @@
 
 #### Installazione
 
-[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+ [![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ***
 
