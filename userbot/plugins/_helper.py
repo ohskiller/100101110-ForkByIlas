@@ -86,7 +86,7 @@ async def cmd_list(event):
         else:
 
 
-            help_string = f"""Userbot - Plugins ☄\n__Developed by @Cattivah__\n \n— — — — — — — — — — — — —\n
+            help_string = f"""Userbot - Plugins ☄\n__Developed by @Cattivah__\n__Fork of 100101110__\n \n— — — — — — — — — — — — —\n
 **PARSER ⚒**\nErrori: 0"""
 
             results = await bot.inline_query(  # pylint:disable=E0602
